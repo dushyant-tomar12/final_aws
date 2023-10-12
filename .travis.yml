@@ -18,13 +18,13 @@ after_success:
   # Log in to the docker CLI
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   # Take those images and push them to docker hub
-  - docker tag dushyant-tomar12/multi-client:multi-client dushyanttomar/hello1
+  - docker tag dushyant-tomar12/multi-client:latest dushyanttomar/hello1
   - docker push  dushyanttomar/hello1
-  - docker tag dushyant-tomar12/multi-nginx:multi-nginx dushyanttomar/hello1
+  - docker tag dushyant-tomar12/multi-nginx:latest dushyanttomar/hello1
   - docker push  dushyanttomar/hello1
-  - docker tag dushyant-tomar12/multi-server:multi-server dushyanttomar/hello1
+  - docker tag dushyant-tomar12/multi-server:latest dushyanttomar/hello1
   - docker push  dushyanttomar/hello1
-  - docker tag dushyant-tomar12/multi-worker:multi-worker dushyanttomar/hello1
+  - docker tag dushyant-tomar12/multi-worker:latest dushyanttomar/hello1
   - docker push  dushyanttomar/hello1
   #- docker push dushyanttomar/hello1:multi-client
   #- docker push dushyanttomar/hello1:multi-nginx
