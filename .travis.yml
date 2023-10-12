@@ -18,14 +18,14 @@ after_success:
   # Log in to the docker CLI
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   # Take those images and push them to docker hub
-  - docker tag dushyant-tomar12/multi-client:client dushyanttomar/hello3
-  - docker push  dushyanttomar/hello3
-  - docker tag dushyant-tomar12/multi-nginx:nginx dushyanttomar/hello3
-  - docker push  dushyanttomar/hello3
-  - docker tag dushyant-tomar12/multi-server:server dushyanttomar/hello3
-  - docker push  dushyanttomar/hello3
-  - docker tag dushyant-tomar12/multi-worker:worker dushyanttomar/hello3
-  - docker push  dushyanttomar/hello3
+  - docker tag dushyant-tomar12/multi-client:client dushyanttomar/hello3:client
+  - docker push  dushyanttomar/hello3:client
+  - docker tag dushyant-tomar12/multi-nginx:nginx dushyanttomar/hello3:nginx
+  - docker push  dushyanttomar/hello3:nginx
+  - docker tag dushyant-tomar12/multi-server:server dushyanttomar/hello3:server
+  - docker push  dushyanttomar/hello3:server
+  - docker tag dushyant-tomar12/multi-worker:worker dushyanttomar/hello3:worker
+  - docker push  dushyanttomar/hello3:worker
   #- docker push dushyanttomar/hello3:multi-client
   #- docker push dushyanttomar/hello3:multi-nginx
   #- docker push dushyanttomar/hello3:multi-server
