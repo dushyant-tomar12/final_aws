@@ -11,20 +11,20 @@ script:
   - docker run -e CI=true dushyant-tomar12/react-test npm test
 
 after_success:
-  - docker build -t dushyant-tomar12/multi-client ./client
-  - docker build -t dushyant-tomar12/multi-nginx ./nginx
-  - docker build -t dushyant-tomar12/multi-server ./server
-  - docker build -t dushyant-tomar12/multi-worker ./worker
+  - docker build -t dushyant-tomar12/multi-client:client ./client
+  - docker build -t dushyant-tomar12/multi-nginx:nginx ./nginx
+  - docker build -t dushyant-tomar12/multi-server:server ./server
+  - docker build -t dushyant-tomar12/multi-worker:worker ./worker
   # Log in to the docker CLI
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   # Take those images and push them to docker hub
-  - docker tag dushyant-tomar12/multi-client:latest dushyanttomar/hello1
+  - docker tag dushyant-tomar12/multi-client:client dushyanttomar/hello1
   - docker push  dushyanttomar/hello1
-  - docker tag dushyant-tomar12/multi-nginx:latest dushyanttomar/hello1
+  - docker tag dushyant-tomar12/multi-nginx:nginx dushyanttomar/hello1
   - docker push  dushyanttomar/hello1
-  - docker tag dushyant-tomar12/multi-server:latest dushyanttomar/hello1
+  - docker tag dushyant-tomar12/multi-server:server dushyanttomar/hello1
   - docker push  dushyanttomar/hello1
-  - docker tag dushyant-tomar12/multi-worker:latest dushyanttomar/hello1
+  - docker tag dushyant-tomar12/multi-worker:worker dushyanttomar/hello1
   - docker push  dushyanttomar/hello1
   #- docker push dushyanttomar/hello1:multi-client
   #- docker push dushyanttomar/hello1:multi-nginx
