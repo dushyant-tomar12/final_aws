@@ -11,21 +11,21 @@ script:
   - docker run -e CI=true dushyant-tomar12/react-test npm test
 
 after_success:
-  - docker build -t dushyant-tomar12/multi-client:client ./client
-  - docker build -t dushyant-tomar12/multi-nginx:nginx ./nginx
-  - docker build -t dushyant-tomar12/multi-server:server ./server
-  - docker build -t dushyant-tomar12/multi-worker:worker ./worker
+  - docker build -t dushyant-tomar12/multi-client:multi-client ./client
+  - docker build -t dushyant-tomar12/multi-nginx:multi-nginx ./nginx
+  - docker build -t dushyant-tomar12/multi-server:multi-server ./server
+  - docker build -t dushyant-tomar12/multi-worker:multi-worker ./worker
   # Log in to the docker CLI
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   # Take those images and push them to docker hub
-  - docker tag dushyant-tomar12/multi-client:client dushyanttomar/hello3:client
-  - docker push  dushyanttomar/hello3:client
-  - docker tag dushyant-tomar12/multi-nginx:nginx dushyanttomar/hello3:nginx
-  - docker push  dushyanttomar/hello3:nginx
-  - docker tag dushyant-tomar12/multi-server:server dushyanttomar/hello3:server
-  - docker push  dushyanttomar/hello3:server
-  - docker tag dushyant-tomar12/multi-worker:worker dushyanttomar/hello3:worker
-  - docker push  dushyanttomar/hello3:worker
+  - docker tag dushyant-tomar12/multi-client:multi-client dushyanttomar/hello3:multi-client
+  - docker push  dushyanttomar/hello3:multi-client
+  - docker tag dushyant-tomar12/multi-nginx:multi-nginx dushyanttomar/hello3:multi-nginx
+  - docker push  dushyanttomar/hello3:multi-nginx
+  - docker tag dushyant-tomar12/multi-server:multi-server dushyanttomar/hello3:multi-server
+  - docker push  dushyanttomar/hello3:multi-server
+  - docker tag dushyant-tomar12/multi-worker:multi-worker dushyanttomar/hello3:multi-worker
+  - docker push  dushyanttomar/hello3:multi-worker
   #- docker push dushyanttomar/hello3:multi-client
   #- docker push dushyanttomar/hello3:multi-nginx
   #- docker push dushyanttomar/hello3:multi-server
